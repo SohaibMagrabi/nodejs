@@ -3,8 +3,8 @@ var moment = require("moment");
 
 
 
-
-const a = (req, res) => {
+//
+const user_index_get = (req, res) => {
     // result ==> array of objects
     console.log("--------------------------------------------");
     User.find()
@@ -15,8 +15,7 @@ const a = (req, res) => {
         console.log(err);
       });
   }
-
-const b =(req, res) => {
+const user_edit_get =(req, res) => {
     User.findById(req.params.id)
       .then((result) => {
         res.render("user/edit", { obj: result, moment: moment });
@@ -25,7 +24,7 @@ const b =(req, res) => {
         console.log(err);
       });
   }
-const c =(req, res) => {
+const user_view_get=(req, res) => {
     // result ==> object
     User.findById(req.params.id)
       .then((result) => {
@@ -35,7 +34,7 @@ const c =(req, res) => {
         console.log(err);
       });
   }
-const d = (req, res) => {
+const user_search_post = (req, res) => {
     console.log("*******************************");
   
     const searchText = req.body.searchText.trim();
@@ -49,7 +48,7 @@ const d = (req, res) => {
         console.log(err);
       });
   }
-const e =(req, res) => {
+const user_edit_delete =(req, res) => {//user_delete as it not render any file but redirect
     User.deleteOne({ _id: req.params.id })
       .then((result) => {
         res.redirect("/");
@@ -59,7 +58,7 @@ const e =(req, res) => {
         console.log(err);
       });
   }
-const f =(req, res) => {
+const user_edit_put =(req, res) => {
     User.updateOne({ _id: req.params.id }, req.body)
       .then((result) => {
         res.redirect("/");
@@ -68,10 +67,10 @@ const f =(req, res) => {
         console.log(err);
       });
   }
-const g = (req, res) => {
+const user_add_get = (req, res) => {
     res.render("user/add");
   }
-const h = (req, res) => {
+const user_post = (req, res) => {
     User.create(req.body)
       .then(() => {
         res.redirect("/");
@@ -80,6 +79,6 @@ const h = (req, res) => {
         console.log(err);
       });
   };
-
-
-module.exports = {a,b,c,d,e,f,g,h}
+module.exports = {user_index_get,user_edit_get,user_view_get,
+  user_search_post,user_edit_delete,user_edit_put,
+  user_add_get,user_post}
