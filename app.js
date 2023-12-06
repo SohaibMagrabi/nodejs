@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.PORT||3000 ;
 ///.use
 app.use(express.urlencoded({extended: true}));
-// const User = require("./models/CustomerSchema");
+const User = require("./models/CustomerSchema");
 app.set("view engine", "ejs");
 app.use(express.static("public"))
 // var moment = require("moment");//format date
