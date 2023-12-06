@@ -7,8 +7,8 @@ app.use(express.urlencoded({extended: true}));
 const User = require("./models/CustomerSchema");
 app.set("view engine", "ejs");
 app.use(express.static("public"))
-// var moment = require("moment");//format date
-// moment().format();
+var moment = require("moment");//format date
+ moment().format();
 //delete
 var methodOverride = require("method-override");
 app.use(methodOverride("_method"));
